@@ -51,7 +51,7 @@ client.on('ready', () => {
       alerts[event.name] = now
       channel.send(formatMessage(event))
     })
-  }, 1000) // Every 5 minutes
+  }, 5 * 60 * 1000) // Every 5 minutes
 })
 
 client.login(process.env.TOKEN)
