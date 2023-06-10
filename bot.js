@@ -12,7 +12,7 @@ const client = new Client({
 })
 
 const getBossTimers = async () => {
-  const response = await fetch('https://diablo4.life/api/trackers/world-boss/list')
+  const response = await fetch('https://diablo4.life/api/trackers/worldBoss/list')
   const jsonData = await response.json()
 
   return jsonData.event
@@ -51,7 +51,7 @@ client.on('ready', () => {
       alerts[event.name] = now
       channel.send(formatMessage(event))
     })
-  }, 5 * 60 * 1000) // Every 5 minutes
+  }, 1000) // Every 5 minutes
 })
 
 client.login(process.env.TOKEN)
