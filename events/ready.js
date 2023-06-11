@@ -13,16 +13,16 @@ const getTimers = async (type) => {
   return jsonData.event
 }
 
-const formatMessage = (event, guild, eventType) => {
+const formatMessage = (event, guild) => {
   const bossName = event.name
   const location = event.location
-
   const role = guild.roles.cache.find(emoji => emoji.name === DEFAULT_ROLE_NAME ) ?? ""
+  // Convert ms to s for Discord's formatting
+  const formattedStartTime = (event.time / 1000)
 
   return `
-# <a:alert:758844313110577162> ${_.startCase(eventType)} Alert <a:alert:758844313110577162>
-## ${bossName}
-Starts at <t:${event.time}:f> ${location}
+# ${bossName}
+Starts at <t:${formattedStartTime}:t> ${location}
 ${role}
   `
 }
@@ -54,22 +54,10 @@ const listenForTimers = (client, eventType) => {
       client.guilds.cache.forEach(async (guild) => {
         const channel = guild.channels.cache.find(channel => channel.name === DEFAULT_CHANNEL_NAME)
 
-        if (channel) channel.send(formatMessage(event, guild, eventType))
+        if (channel) channel.send(formatMessage(event, guild))
       })
     })
   }, 5 * 60 * 1000) // Every 5 minutes
-}
-
-const listenForBossTimers = (client) => {
-  listenForTimers(client, 'worldBoss')
-}
-
-const listenForEventTimers = (client) => {
-  listenForTimers(client, 'zoneEvent')
-}
-
-const listenForHelltideTimers = (client) => {
-  listenForTimers(client, 'helltide')
 }
 
 module.exports = {
@@ -77,8 +65,8 @@ module.exports = {
   once: true,
   execute(client) {
     console.log("D4 Events Bot loaded")
-    listenForBossTimers(client)
-    listenForEventTimers(client)
-    listenForHelltideTimers(client)
+    listenForTimers(client, 'worldBoss')
+    listenForTimers(client, 'zoneEvent')
+    listenForTimers(client, 'helltide')
   }
 }
