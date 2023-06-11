@@ -1,0 +1,11 @@
+const DEFAULT_CHANNEL_NAME = "d4-event-alerts"
+const DEFAULT_EMOJI_NAME = "d4-event-alert"
+const DEFAULT_ROLE_COLOR = "700002"
+const DEFAULT_ROLE_NAME = "D4 Event Alerts"
+
+module.exports = {
+  DEFAULT_CHANNEL_NAME,
+  DEFAULT_EMOJI_NAME,
+  DEFAULT_ROLE_COLOR,
+  DEFAULT_ROLE_NAME,
+}
