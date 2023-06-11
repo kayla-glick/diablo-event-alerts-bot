@@ -22,7 +22,9 @@ const formatMessage = (event) => {
   const bossName = event.name
   const startTime = new Date(event.time);
   const location = event.location
-  const formattedTime = startTime.toLocaleTimeString('en-us', {hour: 'numeric', minute: 'numeric'})
+  const formattedTime = startTime.toLocaleTimeString('en-us', {
+    hour: 'numeric', minute: 'numeric', timeZone: "America/New_York"
+  })
   return `
     # <a:alert:1116830883991781376> World Boss Alert <a:alert:1116830883991781376>
     ## ${bossName}
