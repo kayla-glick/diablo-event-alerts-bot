@@ -9,7 +9,5 @@ Users can use the `/d4-alerts` command to subscribe to or unsubscribe from alert
 
 ### Screenshots
 
-<img width="100%" alt="image" src="https://github.com/kayla-glick/diablo-world-boss-bot/assets/12898988/0cf4388b-3745-4e51-916c-59641dd4b469">
-
-<img width="100%" alt="image" src="https://github.com/kayla-glick/diablo-world-boss-bot/assets/12898988/bb8d4702-00fa-4e91-b315-87cbe02ee931">
-
+<img width="100%" alt="image" src="https://github.com/kayla-glick/diablo-event-alerts-bot/assets/12898988/85947d34-9f7b-429b-98c0-564536a64020">
+<img width="100%" alt="image" src="https://github.com/kayla-glick/diablo-event-alerts-bot/assets/12898988/69e7f2ee-51f8-4261-8829-ccb5e6dbab68">
