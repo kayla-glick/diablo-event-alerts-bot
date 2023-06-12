@@ -64,7 +64,7 @@ module.exports = {
         }
       }
 
-      interaction.reply({ content: 'Done', ephemeral: true })
+      i.reply({ content: 'Done', ephemeral: true })
     })
 	},
 }
