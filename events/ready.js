@@ -13,16 +13,17 @@ const getTimers = async (type) => {
   return jsonData.event
 }
 
-const formatMessage = (event, guild) => {
+const formatMessage = (eventType, event, guild) => {
   const bossName = event.name
   const location = event.location
+  const prefix = eventType === 'helltide' ? 'Ends at' : 'Starts at'
   const role = guild.roles.cache.find(role => role.name === DEFAULT_ROLE_NAME ) ?? ""
   // Convert ms to s for Discord's formatting
   const formattedStartTime = (event.time / 1000)
 
   return `
 # ${bossName}
-Starts at <t:${formattedStartTime}:t> ${location}
+${prefix} <t:${formattedStartTime}:t> in ${location}
 ${role}
   `
 }
@@ -54,7 +55,7 @@ const listenForTimers = async (client, eventType) => {
       client.guilds.cache.forEach(async (guild) => {
         const channel = guild.channels.cache.find(channel => channel.name === DEFAULT_CHANNEL_NAME)
 
-        if (channel) channel.send(formatMessage(event, guild))
+        if (channel) channel.send(formatMessage(eventType, event, guild))
       })
     })
   }, 5 * 60 * 1000) // Every 5 minutes
