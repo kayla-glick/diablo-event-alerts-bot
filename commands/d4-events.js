@@ -14,6 +14,7 @@ commandBuilder.addStringOption(option => {
 module.exports = {
 	data: commandBuilder,
 	execute(interaction) {
+    console.log("Received command")
     const role = interaction.guild.roles.cache.find(role => role.name === DEFAULT_ROLE_NAME)
     const action = interaction.options.getString('action')
 

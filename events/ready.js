@@ -27,7 +27,7 @@ ${role}
   `
 }
 
-const listenForTimers = (client, eventType) => {
+const listenForTimers = async (client, eventType) => {
   console.log(`Listening for ${eventType} timers`)
   const alerts = {}
   setInterval(() => {
