@@ -1,6 +1,6 @@
 const { Events } = require('discord.js')
 const { _ } = require('lodash')
-const { DEFAULT_CHANNEL_NAME, DEFAULT_EMOJI_NAME, DEFAULT_ROLE_NAME } = require('../constants')
+const { DEFAULT_CHANNEL_NAME, DEFAULT_ROLE_NAME } = require('../constants')
 
 const eventName = {
   'worldBoss': 'World Boss'
@@ -16,7 +16,7 @@ const getTimers = async (type) => {
 const formatMessage = (event, guild) => {
   const bossName = event.name
   const location = event.location
-  const role = guild.roles.cache.find(emoji => emoji.name === DEFAULT_ROLE_NAME ) ?? ""
+  const role = guild.roles.cache.find(role => role.name === DEFAULT_ROLE_NAME ) ?? ""
   // Convert ms to s for Discord's formatting
   const formattedStartTime = (event.time / 1000)
 

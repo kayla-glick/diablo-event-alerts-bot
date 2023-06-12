@@ -1,5 +1,5 @@
 const { ChannelType, Colors, Events, PermissionFlagsBits } = require('discord.js')
-const { DEFAULT_CHANNEL_NAME, DEFAULT_EMOJI_NAME, DEFAULT_ROLE_NAME } = require('../constants')
+const { DEFAULT_CHANNEL_NAME, DEFAULT_ROLE_COLOR, DEFAULT_ROLE_NAME } = require('../constants')
 
 module.exports = {
   name: Events.GuildCreate,
@@ -22,19 +22,9 @@ module.exports = {
       })
     }
 
-    if (!guild.roles.cache.find(role => role.name === DEFAULT_ROLE_NAME)) {
-      guild.roles.create({
-        name: DEFAULT_ROLE_NAME,
-        color: DEFAULT_ROLE_COLOR
-      })
-    }
-
-    // Emoji creation isn't working so ignore it for now
-    // if (!guild.emojis.cache.find(emoji => emoji.name === DEFAULT_EMOJI_NAME)) {
-    //   guild.emojis.create({
-    //     name: DEFAULT_EMOJI_NAME,
-    //     attachment: 'https://cdn.discordapp.com/emojis/758844313110577162.gif',
-    //   })
-    // }
+    guild.roles.create({
+      name: DEFAULT_ROLE_NAME,
+      color: DEFAULT_ROLE_COLOR
+    })
   }
 }
