@@ -4,9 +4,10 @@ const { DEFAULT_CHANNEL_NAME, DEFAULT_ROLE_COLOR, DEFAULT_ROLE_NAME } = require(
 module.exports = {
   name: Events.GuildCreate,
   once: true,
-  execute(guild) {
+  async execute(guild) {
+    console.log(`Invited to server ${guild.name}`)
     if (!guild.channels.cache.find(channel => channel.name === DEFAULT_CHANNEL_NAME)) {
-      guild.channels.create({
+      await guild.channels.create({
         name: DEFAULT_CHANNEL_NAME,
         type: ChannelType.GuildText,
         permission_overwrites: [
@@ -20,11 +21,14 @@ module.exports = {
           },
         ]
       })
+      console.log(`Created channel in ${guild.name}`)
     }
 
-    guild.roles.create({
+    await guild.roles.create({
       name: DEFAULT_ROLE_NAME,
       color: DEFAULT_ROLE_COLOR
     })
+
+    console.log(`Created role in ${guild.name}`)
   }
 }
