@@ -2,6 +2,8 @@
 
 A Discord bot that notifies when World Bosses, Zone Events, and Helltides are announced on https://diablo4.life.
 
+Users can select what types of events they want to be notified about. In addition, all times are shown in the user's timezone.
+
 ### [Bot Invite Link](https://discord.com/api/oauth2/authorize?client_id=1116794265973043305&permissions=8&scope=bot%20applications.commands)
 
 <img width="500" alt="image" src="https://github.com/kayla-glick/diablo-event-alerts-bot/assets/12898988/85947d34-9f7b-429b-98c0-564536a64020">
