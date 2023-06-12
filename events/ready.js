@@ -18,7 +18,7 @@ const getRoleName = (eventType) => {
   switch (eventType) {
   case 'helltide':
     return ROLE_NAME_HELLTIDE
-  case 'legion':
+  case 'zoneEvent':
     return ROLE_NAME_LEGION
   case 'worldBoss':
     return ROLE_NAME_WORLD_BOSS
