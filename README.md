@@ -27,4 +27,8 @@ By default there are 3 roles corresponding with the 3 event types:
 
 ### Disclaimer
 
-This is my first time creating a Discord bot so there may be bugs with it. If you have feedback or encounter a bug feel free to submit an issue.
+This is my first time creating a Discord bot and it's still in early development. As such, there may be bugs or other issues. If you have feedback or encounter a bug feel free to submit an issue.
+
+### License
+
+D4 Event Alerts bot is released under the [MIT License](https://opensource.org/license/mit/)
