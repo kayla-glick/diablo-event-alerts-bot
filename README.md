@@ -1,13 +1,30 @@
 # [Alpha] Diablo 4 Event Alerts Discord Bot
 
-Notifies when World Bosses, Zone Events, and Helltides are announced on https://diablo4.life.
-The bot sets up a `#d4-event-alerts` channel and a `@D4 Event Alerts` role that will be pinged when events pop up. Users can use the `/d4-alerts` command to subscribe to or unsubscribe from alerts. Event timers are displayed in the user's local timezone.
+A Discord bot that notifies when World Bosses, Zone Events, and Helltides are announced on https://diablo4.life.
 
-**Disclaimer:** This is my first Discord bot so there may be bugs with it. If you have feedback or encounter a bug feel free to submit an issue.
+Users can select what types of events they want to be notified about. In addition, all times are shown in the user's timezone.
 
-### [Invite Link](https://discord.com/api/oauth2/authorize?client_id=1116794265973043305&permissions=8&scope=bot%20applications.commands)
+### [Bot Invite Link](https://discord.com/api/oauth2/authorize?client_id=1116794265973043305&permissions=8&scope=bot%20applications.commands)
 
-### Screenshots
+<img width="500" alt="image" src="https://github.com/kayla-glick/diablo-event-alerts-bot/assets/12898988/85947d34-9f7b-429b-98c0-564536a64020">
 
-<img width="100%" alt="image" src="https://github.com/kayla-glick/diablo-event-alerts-bot/assets/12898988/85947d34-9f7b-429b-98c0-564536a64020">
-<img width="100%" alt="image" src="https://github.com/kayla-glick/diablo-event-alerts-bot/assets/12898988/69e7f2ee-51f8-4261-8829-ccb5e6dbab68">
+### Usage
+
+After inviting the bot to your server, you'll see a new `#d4-event-alerts` channel. You're welcome to move this channel anywhere on your server,
+but if you rename it the bot won't work.
+
+Users can use the `/d4-alerts` command to choose which types of notifications they want to receive.
+
+<img width="500" alt="image" src="https://github.com/kayla-glick/diablo-event-alerts-bot/assets/12898988/1c0752d5-03e8-474e-b80d-3c6a4cefd9fd">
+
+By default there are 3 roles corresponding with the 3 event types:
+
+- `D4 Alerts Helltide`
+- `D4 Alerts Legion`
+- `D4 Alerts World Boss`
+
+<img width="500" alt="image" src="https://github.com/kayla-glick/diablo-event-alerts-bot/assets/12898988/aa42b67a-b67c-46fe-9331-22f2c9919d83">
+
+### Disclaimer
+
+This is my first time creating a Discord bot so there may be bugs with it. If you have feedback or encounter a bug feel free to submit an issue.
