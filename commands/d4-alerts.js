@@ -38,7 +38,7 @@ module.exports = {
     
     const select = new StringSelectMenuBuilder()
           .setCustomId('starter')
-          .setPlaceholder('Make a selection!')
+          .setPlaceholder('Select what alerts you want to receive')
           .addOptions(...roleSelections)
           .setMinValues(0)
           .setMaxValues(roleSelections.length)
