@@ -1,4 +1,9 @@
-const { SlashCommandBuilder } = require('discord.js')
+const {
+  ActionRowBuilder,
+  SlashCommandBuilder,
+  StringSelectMenuBuilder,
+  StringSelectMenuOptionBuilder
+} = require('discord.js')
 const {
   AVAILABLE_ROLES,
   ROLE_NAME_HELLTIDE,
