@@ -13,7 +13,7 @@ const {
 } = require('../constants')
 
 const commandBuilder = new SlashCommandBuilder()
-commandBuilder.setName('d4-alerts-2')
+commandBuilder.setName('d4-alerts')
 commandBuilder.setDescription('Subscribe or unsubscribe to Diablo 4 Event Alerts')
 
 module.exports = {
