@@ -1,5 +1,6 @@
 const {
   ActionRowBuilder,
+  ComponentType,
   SlashCommandBuilder,
   StringSelectMenuBuilder,
   StringSelectMenuOptionBuilder
