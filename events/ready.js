@@ -58,7 +58,7 @@ const listenForTimers = (client, eventType) => {
       const now = new Date()
 
       // Don't alert if we already alerted for this event within the past hour
-      if (alerts[event.name] && (now - alerts[event.name] < 60 * 60 * 10000) ) return
+      if (alerts[event.name] && (now - alerts[event.name] < 3_600_000) ) return
 
       console.log(`Alerting for event ${event.name} at ${new Date(event.time)} EST`)
 
