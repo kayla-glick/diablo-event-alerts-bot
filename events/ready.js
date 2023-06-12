@@ -1,6 +1,6 @@
 const { Events } = require('discord.js')
 const { _ } = require('lodash')
-const { DEFAULT_CHANNEL_NAME, DEFAULT_ROLE_NAME } = require('../constants')
+const { DEFAULT_CHANNEL_NAME, ROLE_NAME_HELLTIDE, ROLE_NAME_LEGION, ROLE_NAME_WORLD_BOSS } = require('../constants')
 
 const eventName = {
   'worldBoss': 'World Boss'
@@ -13,11 +13,24 @@ const getTimers = async (type) => {
   return jsonData.event
 }
 
+// TODO: Refactor event types into an enum or something
+const getRoleName = (eventType) => {
+  switch (eventType) {
+  case 'helltide':
+    return ROLE_NAME_HELLTIDE
+  case 'legion':
+    return ROLE_NAME_LEGION
+  case 'worldBoss':
+    return ROLE_NAME_WORLD_BOSS
+  }
+}
+
 const formatMessage = (eventType, event, guild) => {
   const bossName = event.name
   const location = event.location
   const prefix = eventType === 'helltide' ? 'Ends at' : 'Starts at'
-  const role = guild.roles.cache.find(role => role.name === DEFAULT_ROLE_NAME ) ?? ""
+  const roleName = getRoleName(eventType)
+  const role = guild.roles.cache.find(role => role.name === roleName ) ?? ""
   // Convert ms to s for Discord's formatting
   const formattedStartTime = (event.time / 1000)
 

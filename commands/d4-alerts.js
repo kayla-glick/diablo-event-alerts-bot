@@ -1,8 +1,13 @@
 const { SlashCommandBuilder } = require('discord.js')
-const { DEFAULT_ROLE_NAME } = require('../constants')
+const {
+  AVAILABLE_ROLES,
+  ROLE_NAME_HELLTIDE,
+  ROLE_NAME_LEGION,
+  ROLE_NAME_WORLD_BOSS,
+} = require('../constants')
 
 const commandBuilder = new SlashCommandBuilder()
-commandBuilder.setName('d4-alerts')
+commandBuilder.setName('d4-alerts-2')
 commandBuilder.setDescription('Subscribe or unsubscribe to Diablo 4 Event Alerts')
 
 module.exports = {
@@ -14,15 +19,15 @@ module.exports = {
       new StringSelectMenuOptionBuilder()
             .setLabel('Helltide Alerts')
             .setDescription('Receive alerts for Helltide events.')
-            .setValue('helltide'),
+            .setValue(ROLE_NAME_HELLTIDE),
       new StringSelectMenuOptionBuilder()
             .setLabel('Legion Alerts')
             .setDescription('Receive alerts for Legion events.')
-            .setValue('legion'),
+            .setValue(ROLE_NAME_LEGION),
       new StringSelectMenuOptionBuilder()
             .setLabel('World Boss Alerts')
             .setDescription('Receive alerts for World Boss events.')
-            .setValue('world_boss'),
+            .setValue(ROLE_NAME_WORLD_BOSS),
     ]
     
     const select = new StringSelectMenuBuilder()
@@ -41,20 +46,19 @@ module.exports = {
     
     const collector = response.createMessageComponentCollector({ componentType: ComponentType.StringSelect, time: 60_000 });
     collector.on('collect', async i => {
-      i.values
-      for (const selection in i.values) {
+      for await (const roleName of AVAILABLE_ROLES) {
+        const role = await interaction.guild.roles.cache.find(role => role.name === roleName)
 
+        if (i.values.includes(roleName)) {
+          // Give the user the roles they selected
+          await interaction.member.roles.add(role)
+        } else {
+          // Remove the roles they did not select
+          await interaction.member.roles.remove(role)
+        }
       }
-      const selection = i.values[0]
-      await i.reply(`${i.user} has selected ${selection}!`)
+
+      interaction.reply({ content: 'Done', ephemeral: true })
     })
-
-    const role = interaction.guild.roles.cache.find(role => role.name === DEFAULT_ROLE_NAME)
-    const action = interaction.options.getString('action')
-
-    if (action === 'subscribe') interaction.member.roles.add(role)
-    if (action === 'unsubscribe') interaction.member.roles.remove(role)
-
-    interaction.reply({ content: 'Done', ephemeral: true })
 	},
 }
